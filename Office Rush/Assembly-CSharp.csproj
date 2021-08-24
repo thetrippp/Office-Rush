@@ -58,8 +58,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ControllerScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-    <Compile Include="Assets\Scripts\WayPointScript.cs" />
     <Compile Include="Assets\Scripts\PersonScript.cs" />
+    <Compile Include="Assets\Scripts\WayPointScript.cs" />
+    <Compile Include="Assets\LineScript.cs" />
+    <Compile Include="Assets\WayPointIndicatorScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

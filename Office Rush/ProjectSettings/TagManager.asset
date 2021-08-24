@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Controller
   - WayPoint
+  - Indicators
   layers:
   - Default
   - TransparentFX
