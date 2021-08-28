@@ -12,16 +12,18 @@ public class PlayerScript : MonoBehaviour
     public float maxSpeed;
     float moveSpeed;
 
-    int chances = 3;
+    [HideInInspector]
+    public bool stop;
 
     void Start()
     {
         moveSpeed = maxSpeed;
+        stop = false;
     }
 
     void Update()
     {
-        if (chances > 0)
+        if (!stop)
         {
             if (Input.GetKey(KeyCode.Space))
                 moveSpeed = maxSpeed * 2.25f;
@@ -38,19 +40,19 @@ public class PlayerScript : MonoBehaviour
                     transform.position = target.position;
                     controller.GetComponent<ControllerScript>().RemoveFirst();
                 }
+                float xvalue, yvalue, zvalue = 0;
+                xvalue = target.position.x - transform.position.x;
+                yvalue = target.position.y - transform.position.y;
+
+                if (xvalue > 0.02f) zvalue = 90;
+                if (xvalue < 0.02f) zvalue = 0;
+                if (yvalue > 0.02f) zvalue = 180;
+                if (xvalue < -0.02f) zvalue = 270;
+
+                transform.rotation = Quaternion.Euler(0, 0, zvalue);
             }
-        }
-        else
-        {
-            //GAME OVER.
         }
     }
 
-    public void ReduceChances()
-    {
-        chances--;
-        if (chances < 0)
-            chances = 0;
-    }
 
 }
